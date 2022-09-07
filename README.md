@@ -75,7 +75,7 @@ In order to get more accurate prediction model, I suggest:
 
 ## For More Information
 
-See the full analysis in the [[Jupyter Notebook](./Yessy Capstone_Project.ipynb)]
+See the full analysis in the Jupyter Notebook https://github.com/YessyLee/Capstone-Project-AcademyXi/blob/main/Yessy_Capstone_Project.ipynb
 
 For additional info, contact Yessy Rayner at [yessy.rayner@gmail.com](mailto:yessy.rayner@gmail.com)
 
