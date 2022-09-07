@@ -1,5 +1,5 @@
 # Capstone-Project-AcademyXi
-Final Data Analytics Project
+
 ![Capstone-Project-AcademyXi](./image/Seoul_Bike_Rental2.jpg)
 
 # Analysis for BT Seoul Bike Rental Service in Seoul, South Korea
@@ -8,22 +8,27 @@ Final Data Analytics Project
 ***
 
 ## Business Overview
-KC Financial Investment would like to expand their business portfolio to include property buy and sell investment. They would like to invest in the property buy and sell market in the Kings County, California. According to Realtor.com homes for sale in Kings County spend an average of 50 days on the market, so it is quite a lucrative market in term of the short sales turn around. Also the outgoing fees for buying and selling in Kings County are relatively low (under 1%) as long as they don't engage the real estate agent services due to high commission.
+Since COVID-19 pandemic, bike rental businesses in Seoul are booming. This is an unexpected result for BT Seoul Bike Hire, so they would like some analysis on:
 
-Their goal is to maximise profits through the buy and sell, and would like the Business Analyst (myself) to build a model that predict the house prices based on the sales database in the past two years.
-
-Once the prediction model is built, they will then analyse all of the available houses that are currently for sale in the market and purchase the properties that are under predicted asking price. They will resell after a few weeks.
+1. How many extra staff members require during busy period. It is estimated by the management that 1 staff member required to service every 200 bikes/customers
+2. Quiet time of the day, so they can service their bikes with less disruption. They are currently close 1 day per month to service their bikes
+3. BT Seoul Bike Hire also would like to expand their business to other major metropolitan cities such as Busan and Incheon using the same business model and staffing method.
 
 ## Data Understanding and Preparation
-I will analyse Kings County's property sales datas in the past two year to build a regression model. There are approximately 21,000 sales in the past 2 years.
-This is a good size for analysis.
+The dataset contains rented bike count at each hour with the corresponding weather data and date information for the six months period (From March to October 2018). In total there are 7890 rented bike data counts with 10 features, which being grouped as follow for the testing and validation:
 
-The datat cleaning process will ensure the datas are in correct data types, checking missing value and fill it with approriate value.
-Once datas are cleaned, I will separate them into 3 variables or features as follow for testing and validation in order to get the best model:
+- Base variables: Temperature (C), Dewpoint (C), Solar radiation (MJ/m2) due to apparent linear relationship
+- Continuous variables: Humidity (%), Windspeed (m/s), Visibility (10m), Snowfall (cm) and Rainfall (mm)
+- Discrete variables: Date and Hour
+- Categorical variables: Seasons and Holiday
 
-1. Continuous variables (A continuous variable can be of any value in a range, for example: sqft living and lot sizes)
-2. Discrete variables (certain number of particular values that can be counted, for example: number of bedrooms)
-3. Categorical variables (descriptive categories instead of numerical or measured categories, for example: zipcodes)
+## Preprocessing / Data Cleaning
+Here are some of the data preprocessing and cleaning methods being performed:
+
+Checked if all data are in correct data types
+Checked any missing data
+Added 2 additional categorial variables: Day_of_week (Monday to Sunday) and Shift(Early morning, Morning peak, Mid day, Evening peak) – This will help with predicting the staffing requirements
+Drop ‘Functioning Day = No’ (Close down due to bike servicing day), removed the ‘No’ value as it skews the overall data.
 
 ## Modelling
 Upon reviewing the above datas and their value, here are my breakdown on the features or variables. So we can model it approriately on the next step using linear regression model to predict property prices based on below features:
